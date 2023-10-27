@@ -1,0 +1,30 @@
+
+
+<div class="module-cnt">
+  <div class="header">
+    <div class="card w-50 p-4 d-flex justify-content align-items-center">
+      <h1 class="mb-3">Listing Form</h1>
+      <p class="mb-3">Please fill out this form with the required information</p>
+      <button class="btn btn-primary">Login</button>
+      <button class="btn btn-primary">Sign Up</button>
+      <p>
+        Type of user
+        ->
+        Name | Phone | Password | Address
+        ->
+        Age of property | Expected Price | Rent / Sell | Photos/Videos
+      </p>
+      <form [formGroup]="form" class="form">
+        <label for="name">Name: </label>
+        <input id="name" type="text" formControlName="name">
+        <button type="submit" (click)="sendData()">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="body">
+    <p>Body Content</p>
+  </div>
+  <div class="footer">
+    <p>Footer Content</p>
+  </div>
+</div>
