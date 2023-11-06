@@ -7,24 +7,30 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit{
-  // form = new FormGroup ({});
-  form: FormGroup;
+  form!: FormGroup;
+  number: number = 0;
 
   constructor(
     private fb: FormBuilder,
-  ) {
-    this.form = this.fb.group({
-      name: ['', Validators.required],
-    });
-  }
+  ) {  }
 
   ngOnInit() {
-    // this.form = this.fb.group({
-    //   name: ['', Validators.required],
-    // })
+    this.formInit();
   }
 
+  formInit(){
+    this.form = this.fb.group({
+      user_name: ['', Validators.required],
+      user_contact: ['', Validators.required],
+      user_password: ['', Validators.required],
+      property_address: ['', Validators.required],
+      user_type: ['', Validators.required],
+    });
+  }
   sendData(){
     console.log(this.form.value);
+  }
+  switchTab(res: any){
+    this.number = res;
   }
 }

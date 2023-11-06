@@ -2,24 +2,84 @@
 
 <div class="module-cnt">
   <div class="header">
-    <div class="card w-50 p-4 d-flex justify-content align-items-center">
-      <h1 class="mb-3">Listing Form</h1>
-      <p class="mb-3">Please fill out this form with the required information</p>
-      <button class="btn btn-primary">Login</button>
-      <button class="btn btn-primary">Sign Up</button>
-      <p>
-        Type of user
-        ->
-        Name | Phone | Password | Address
-        ->
-        Age of property | Expected Price | Rent / Sell | Photos/Videos
-      </p>
-      <form [formGroup]="form" class="form">
-        <label for="name">Name: </label>
-        <input id="name" type="text" formControlName="name">
-        <button type="submit" (click)="sendData()">Submit</button>
-      </form>
+    <div class="row m-0">
+      <div class="col-md-12">
+        <p class="mb-3">
+          Type of user
+          ->
+          Name | Phone | Password | Address
+          ->
+          Age of property | Expected Price | Rent / Sell | Photos/Videos
+        </p>
+        <div class="cnt p-4">
+          <form [formGroup]="form" class="form">
+            <div class="form-panel-module d-flex align-items-center justify-content-center flex-column">
+              <h2 class="mb-3">Listing Form</h2>
+              <p class="mb-3">Please fill out this form with the required information</p>
+            </div>
+            <div class="hr-n-titles">
+              <hr style="width:340px; margin:auto; margin-bottom:28px; border-width: 2px; color: #6b6b6b;">
+              <div class="row">
+                <div class="col">
+                  <h6 class="m-0">
+                    Personal <br> Information
+                  </h6>
+                </div>
+                <div class="col">
+                  <h6 class="m-0">
+                    Property <br> Information
+                  </h6>
+                </div>
+                <div class="col">
+                  <h6 class="m-0">
+                    Upload <br> Videos/Photos
+                  </h6>
+                </div>
+              </div>
+            </div>
+            <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" [selectedIndex]="number">
+              <mat-tab label="01" disabled>
+                <p>Chose your listing type</p>
+                <mat-radio-group formControlName="user_type">
+                  <mat-radio-button class="example-margin" value="after">
+                    <h2 class="mb-1">Seller</h2>
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="before">
+                    <h2 class="mb-1">Buyer</h2>
+                  </mat-radio-button>
+                </mat-radio-group>
+                <div class="personal-data d-flex justify-content-start flex-column">
+                  <label for="name">Name: </label>
+                  <input id="name" type="text" formControlName="user_name">
+                  <label for="phone">Phone: </label>
+                  <input id="phone" type="text" formControlName="user_contact">
+                  <label for="password">Password: </label>
+                  <input id="password" type="text" formControlName="user_password">
+                </div>
+                <div class="action-btn d-flex justify-content-end">
+                  <button class="btn btn-primary"  (click) = "switchTab(1)">Next</button>
+                </div>
+              </mat-tab>
+              <mat-tab label="02" disabled>
+                <div class="personal-data d-flex justify-content-start flex-column">
+                  <!-- <label for="name">Name: </label>  -->
+                </div>
+                <div class="action-btn d-flex justify-content-end">
+                  <button class="btn btn-primary"  (click) = "switchTab(3)">Next</button>
+                </div>
+              </mat-tab>
+              <mat-tab label="03" disabled>
+                Content 4
+                <button class="btn btn-primary me-4" type="submit" (click)="sendData()">Submit</button>
+                <button class="btn btn-primary ms-3"  (click) = "switchTab(0)">Login</button>
+              </mat-tab>
+            </mat-tab-group>
+          </form>
+        </div>
+      </div>
     </div>
+
+
   </div>
   <div class="body">
     <p>Body Content</p>
@@ -28,3 +88,7 @@
     <p>Footer Content</p>
   </div>
 </div>
+
+
+
+
