@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit{
   form!: FormGroup;
-  number: number = 0;
+  active_tab: number = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -25,12 +25,15 @@ export class HomeComponent implements OnInit{
       user_password: ['', Validators.required],
       property_address: ['', Validators.required],
       user_type: ['', Validators.required],
+      property_age: ['', Validators.required],
+      expected_price: ['', Validators.required],
     });
   }
   sendData(){
     console.log(this.form.value);
   }
+
   switchTab(res: any){
-    this.number = res;
+    this.active_tab = res;
   }
 }

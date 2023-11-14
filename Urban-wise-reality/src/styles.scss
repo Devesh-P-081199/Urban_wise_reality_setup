@@ -1,9 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+/* IMPORTS */
 @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// BOILERPLATES
 
 *{
   margin: 0;
   padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, p, span{
@@ -40,10 +51,39 @@ p{
   font-size: 16px !important;
 }
 
+// CSS FOR MAT ELEMENTS
+
+
+
+// FUNCTIONAL CSS
+
 .module-cnt{
   width: 100%;
   height: 100vh;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.label,label{
+  font-size: 18px !important;
+  font-weight: 500;
+  margin: 0 !important;
+  line-height: 1.8;
+}
+
+input{
+  font-size: 16px !important;
+  padding: 9px;
+  border-radius: 5px;
+  border: none;
+  outline: 1px solid #000;
+  margin: 0 1px;
+}
+
+textarea{
+  font-size: 16px !important;
+  padding: 9px;
+  border-radius: 5px;
+  border: none;
+  outline: 1px solid #000;
+  margin: 0 1px;
+}
+

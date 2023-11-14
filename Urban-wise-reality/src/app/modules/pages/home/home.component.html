@@ -15,10 +15,10 @@
           <form [formGroup]="form" class="form">
             <div class="form-panel-module d-flex align-items-center justify-content-center flex-column">
               <h2 class="mb-3">Listing Form</h2>
-              <p class="mb-3">Please fill out this form with the required information</p>
+              <p class="mb-3 text-center">Please fill out this form with the required information</p>
             </div>
             <div class="hr-n-titles">
-              <hr style="width:340px; margin:auto; margin-bottom:28px; border-width: 2px; color: #6b6b6b;">
+              <hr style="width:85%; margin:auto; margin-bottom:28px; border-width: 2px; color: #6b6b6b;">
               <div class="row">
                 <div class="col">
                   <h6 class="m-0">
@@ -37,41 +37,48 @@
                 </div>
               </div>
             </div>
-            <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" [selectedIndex]="number">
+            <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" [selectedIndex]="active_tab">
               <mat-tab label="01" disabled>
-                <p>Chose your listing type</p>
-                <mat-radio-group formControlName="user_type">
+                <!-- <mat-radio-group formControlName="user_type" class="mt-2 mb-2">
                   <mat-radio-button class="example-margin" value="after">
-                    <h2 class="mb-1">Seller</h2>
+                    <h5 class="mb-1">Seller</h5>
                   </mat-radio-button>
                   <mat-radio-button class="example-margin" value="before">
-                    <h2 class="mb-1">Buyer</h2>
+                    <h5 class="mb-1">Buyer</h5>
                   </mat-radio-button>
-                </mat-radio-group>
+                </mat-radio-group> -->
                 <div class="personal-data d-flex justify-content-start flex-column">
+                  <label for="uses_purpose">Listing type</label>
+                  <!-- <p class="label">Chose your listing type</p> -->
+                  <mat-slide-toggle id="uses_purpose">Slide Toggle Checked</mat-slide-toggle>
                   <label for="name">Name: </label>
-                  <input id="name" type="text" formControlName="user_name">
+                  <input id="name" type="text" formControlName="user_name" class="mt-1 mb-1">
                   <label for="phone">Phone: </label>
-                  <input id="phone" type="text" formControlName="user_contact">
+                  <input id="phone" type="tel" formControlName="user_contact" class="mt-1 mb-1">
                   <label for="password">Password: </label>
-                  <input id="password" type="text" formControlName="user_password">
+                  <input id="password" type="password" formControlName="user_password" class="mt-1 mb-1" autocomplete="on">
                 </div>
                 <div class="action-btn d-flex justify-content-end">
                   <button class="btn btn-primary"  (click) = "switchTab(1)">Next</button>
                 </div>
               </mat-tab>
               <mat-tab label="02" disabled>
-                <div class="personal-data d-flex justify-content-start flex-column">
-                  <!-- <label for="name">Name: </label>  -->
+                <div class="property-details d-flex justify-content-start flex-column">
+                  <label for="property_age">Age of Property: </label>
+                  <input id="property_age" type="number" formControlName="property_age" class="mt-1 mb-1" min="0" max="20">
+                  <label for="expected_price">Expected Price: </label>
+                  <input id="expected_price" type="text" formControlName="expected_price" class="mt-1 mb-1">
+                  <label for="address">Address: </label>
+                  <textarea id="address" type="text" formControlName="property_address" class="mt-1 mb-1" rows="4"></textarea>
                 </div>
                 <div class="action-btn d-flex justify-content-end">
-                  <button class="btn btn-primary"  (click) = "switchTab(3)">Next</button>
+                  <button class="btn btn-primary"  (click) = "switchTab(2)">Next</button>
                 </div>
               </mat-tab>
               <mat-tab label="03" disabled>
                 Content 4
-                <button class="btn btn-primary me-4" type="submit" (click)="sendData()">Submit</button>
-                <button class="btn btn-primary ms-3"  (click) = "switchTab(0)">Login</button>
+                <button class="btn btn-primary" type="submit" (click)="sendData()">Submit</button>
+                <button class="btn btn-primary"  (click) = "switchTab(0)">Login</button>
               </mat-tab>
             </mat-tab-group>
           </form>
