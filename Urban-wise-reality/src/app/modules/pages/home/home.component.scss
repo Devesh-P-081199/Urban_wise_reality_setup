@@ -1,5 +1,108 @@
 ::ng-deep {
 
+  // The Toggle Element
+
+  .mat-mdc-slide-toggle .mdc-switch.mdc-switch--unselected:enabled .mdc-switch__handle::after{
+    background: #000000 !important;
+    // background: #007bff !important;
+  }
+
+  .mat-mdc-slide-toggle .mdc-switch:enabled .mdc-switch__track::after{
+    background: #ffffff !important;
+  }
+
+  .mat-mdc-slide-toggle .mdc-switch:enabled .mdc-switch__track::before{
+    background:  #ffffff !important;
+  }
+
+  .mat-mdc-slide-toggle .mdc-switch.mdc-switch--selected:enabled .mdc-switch__handle::after{
+    background: #000000 !important;
+    // background: #007bff !important;
+  }
+
+  .mat-mdc-slide-toggle .mdc-switch.mdc-switch--selected:enabled:focus:not(:active) .mdc-switch__handle::after{
+    background: #000000 !important;
+    // background: #007bff !important;
+  }
+
+  .mat-mdc-slide-toggle .mdc-switch.mdc-switch--selected:enabled:hover:not(:active) .mdc-switch__handle::after{
+    background: #000000 !important;
+    // background: #007bff !important;
+  }
+
+  .mat-mdc-slide-toggle{
+    button.mdc-switch{
+      .mdc-switch__handle-track{
+        .mdc-switch__handle{
+          margin-left: 4px;
+          .mdc-switch__icons{
+            .mdc-switch__icon--off path{
+              d: path("M 11.52 0.72 C 5.5555 0.72 0.72 5.5555 0.72 11.52 s 4.8355 10.8 10.8 10.8 s 10.8 -4.8355 10.8 -10.8 S 17.4845 0.72 11.52 0.72 m 4.1785 14.5346 a 2.8786 2.8786 90 0 1 -0.7398 0.8219 c -0.3337 0.2552 -0.7272 0.4298 -1.1804 0.5245 c -0.4532 0.0947 -0.945 0.1418 -1.476 0.1418 H 7.596 V 6.2971 h 5.0483 c 1.2733 0.0187 2.1758 0.3895 2.7072 1.1124 c 0.3197 0.4442 0.4795 0.9756 0.4795 1.5948 c 0 0.6376 -0.1616 1.1502 -0.4838 1.5376 c -0.1807 0.2174 -0.4457 0.4154 -0.797 0.5951 c 0.5332 0.1937 0.9356 0.5011 1.2071 0.9216 c 0.2711 0.4205 0.4068 0.9306 0.4068 1.5307 c -0.0004 0.6188 -0.1552 1.174 -0.4655 1.6654 M 13.2944 12.321 c -0.2477 -0.1134 -0.5954 -0.1724 -1.0436 -0.1771 h -2.5715 v 2.785 h 2.5362 c 0.4529 0 0.8057 -0.0616 1.0577 -0.1843 c 0.4576 -0.2272 0.6865 -0.6617 0.6865 -1.3043 c 0 -0.5432 -0.2218 -0.9162 -0.6653 -1.1192 M 13.3229 10.156 c 0.2826 -0.1724 0.4244 -0.4784 0.4244 -0.918 c 0 -0.4867 -0.1872 -0.8078 -0.5609 -0.9637 c -0.3226 -0.1091 -0.7344 -0.1631 -1.2348 -0.1631 h -2.2727 v 2.3029 h 2.5391 c 0.4536 0.0004 0.8222 -0.086 1.1048 -0.2581");
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked{
+    margin-right: 10px;
+    button.mdc-switch{
+      .mdc-switch__handle-track{
+        .mdc-switch__handle{
+          margin-left: -12px;
+          .mdc-switch__icons{
+            .mdc-switch__icon--on path{
+              d: path("M 12.096 0.756 C 5.8333 0.756 0.756 5.8329 0.756 12.096 c 0 6.2631 5.0773 11.34 11.34 11.34 s 11.34 -5.0773 11.34 -11.34 C 23.436 5.8329 18.3587 0.756 12.096 0.756 m 3.3842 16.1323 c -0.7745 0.6623 -1.8685 0.993 -3.2826 0.993 c -1.444 0 -2.5802 -0.3262 -3.4073 -0.9783 c -0.8274 -0.6528 -1.241 -1.549 -1.241 -2.6902 h 2.1875 c 0.0711 0.5012 0.2105 0.8754 0.4177 1.1238 c 0.3803 0.4517 1.0308 0.677 1.9527 0.677 c 0.5523 0 1.0002 -0.059 1.3445 -0.1788 c 0.6539 -0.2283 0.9805 -0.652 0.9805 -1.272 c 0 -0.3617 -0.1603 -0.6422 -0.4801 -0.841 c -0.3205 -0.1935 -0.8282 -0.3648 -1.523 -0.5129 l -1.1873 -0.2604 c -1.1673 -0.2586 -1.969 -0.5383 -2.4052 -0.8407 c -0.7397 -0.5061 -1.1091 -1.2973 -1.1091 -2.3738 c 0 -0.9824 0.3617 -1.7981 1.0845 -2.4479 c 0.7227 -0.6502 1.7853 -0.9749 3.1865 -0.9749 c 1.1703 0 2.1675 0.3062 2.9945 0.9189 c 0.8256 0.6127 1.2587 1.5022 1.2996 2.6679 h -2.203 c -0.0404 -0.6596 -0.3353 -1.1283 -0.8845 -1.4065 c -0.3663 -0.1833 -0.8218 -0.2756 -1.3657 -0.2756 c -0.6056 0 -1.0883 0.1191 -1.4493 0.3572 s -0.5421 0.5704 -0.5421 0.9972 c 0 0.392 0.178 0.6846 0.5345 0.8777 c 0.2283 0.1293 0.714 0.2805 1.4572 0.454 l 1.9248 0.454 c 0.8429 0.1981 1.4757 0.4638 1.8968 0.7957 c 0.6536 0.516 0.9805 1.2629 0.9805 2.2396 c 0 1.0021 -0.3867 1.8348 -1.162 2.4971");
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mat-mdc-slide-toggle,.mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked{
+    margin: auto 0;
+    button.mdc-switch{
+      width: 100px;
+      outline: 1px solid #000000;
+      border-radius: 7px;
+      .mdc-switch__track{
+        width: 100px;
+        height: 35px;
+        font-size: 16px;
+        font-weight: 500;
+        &::before{
+          content: "Buyer";
+          padding: 7px 5px 7px 0;
+          text-align: right;
+        }
+        &::after{
+          content: "Seller";
+          padding: 7px 0 7px 5px;
+          text-align: left;
+        }
+      }
+      .mdc-switch__handle-track{
+        .mdc-switch__handle{
+          border-radius: 5px;
+          height: 28px;
+          width: 28px;
+          .mdc-switch__ripple{
+            display: none;
+          }
+          .mdc-switch__shadow{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  // The Toggle Element
+
+  // Chechbox Element
+
   .mat-mdc-radio-group{
     display: flex;
 
@@ -46,6 +149,8 @@
     }
   }
 
+  // Chechbox Element
+
   .mat-mdc-tab-header{
     margin-bottom: 50px;
 
@@ -81,7 +186,7 @@
   }
 
   .mat-mdc-tab-body-wrapper{
-    height: 410px;
+    height: 380px;
 
     .mat-mdc-tab-body{
 
@@ -96,7 +201,7 @@
 
 // Normal CSS
 .cnt {
-  width: 40%;
+  width: 30%;
   box-shadow: 23px 23px 46px #e6e4e4,
   -23px -23px 46px #ffffff;
   border: 1px solid #00000008;
@@ -128,6 +233,7 @@
 
     .personal-data{
       margin-bottom: 35px;
+      overflow-x: hidden;
     }
 
     .property-details{

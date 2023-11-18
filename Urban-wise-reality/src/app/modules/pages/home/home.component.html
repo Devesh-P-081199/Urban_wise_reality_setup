@@ -48,15 +48,16 @@
                   </mat-radio-button>
                 </mat-radio-group> -->
                 <div class="personal-data d-flex justify-content-start flex-column">
+                  <div class="switch-home d-flex justify-content-between mt-2 mb-2">
                   <label for="uses_purpose">Listing type</label>
-                  <!-- <p class="label">Chose your listing type</p> -->
-                  <mat-slide-toggle id="uses_purpose">Slide Toggle Checked</mat-slide-toggle>
+                    <mat-slide-toggle id="uses_purpose" formControlName="user_type"></mat-slide-toggle>
+                  </div>
                   <label for="name">Name: </label>
-                  <input id="name" type="text" formControlName="user_name" class="mt-1 mb-1">
+                  <input id="name" type="text" formControlName="user_name" class="mt-1 mb-1 me-1">
                   <label for="phone">Phone: </label>
-                  <input id="phone" type="tel" formControlName="user_contact" class="mt-1 mb-1">
+                  <input id="phone" type="tel" formControlName="user_contact" class="mt-1 mb-1 me-1">
                   <label for="password">Password: </label>
-                  <input id="password" type="password" formControlName="user_password" class="mt-1 mb-1" autocomplete="on">
+                  <input id="password" type="password" formControlName="user_password" class="mt-1 mb-1 me-1" autocomplete="on">
                 </div>
                 <div class="action-btn d-flex justify-content-end">
                   <button class="btn btn-primary"  (click) = "switchTab(1)">Next</button>
@@ -67,7 +68,7 @@
                   <label for="property_age">Age of Property: </label>
                   <input id="property_age" type="number" formControlName="property_age" class="mt-1 mb-1" min="0" max="20">
                   <label for="expected_price">Expected Price: </label>
-                  <input id="expected_price" type="text" formControlName="expected_price" class="mt-1 mb-1">
+                  <input id="expected_price" type="number" formControlName="expected_price" class="mt-1 mb-1">
                   <label for="address">Address: </label>
                   <textarea id="address" type="text" formControlName="property_address" class="mt-1 mb-1" rows="4"></textarea>
                 </div>
