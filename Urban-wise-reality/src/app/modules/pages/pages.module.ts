@@ -7,6 +7,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatRadioModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
+    MatSliderModule,
     RouterModule.forChild([
       {
         path: "",

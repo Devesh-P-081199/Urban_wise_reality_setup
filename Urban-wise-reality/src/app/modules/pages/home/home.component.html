@@ -1,93 +1,256 @@
-
-
 <div class="module-cnt">
   <div class="header">
     <div class="row m-0">
       <div class="col-md-12">
         <p class="mb-3">
-          Type of user
-          ->
-          Name | Phone | Password | Address
-          ->
-          Age of property | Expected Price | Rent / Sell | Photos/Videos
+          Type of user -> Name | Phone | Password | Address -> Age of property |
+          Expected Price | Rent / Sell | Photos/Videos
         </p>
         <div class="cnt p-4">
           <form [formGroup]="form" class="form">
-            <div class="form-panel-module d-flex align-items-center justify-content-center flex-column">
+            <div
+              class="form-panel-module d-flex align-items-center justify-content-center flex-column"
+            >
               <h2 class="mb-3">Listing Form</h2>
-              <p class="mb-3 text-center">Please fill out this form with the required information</p>
+              <p class="mb-3 text-center">
+                Please fill out this form with the required information
+              </p>
             </div>
             <div class="hr-n-titles">
-              <hr style="width:85%; margin:auto; margin-bottom:28px; border-width: 2px; color: #6b6b6b;">
+              <hr
+                style="
+                  width: 85%;
+                  margin: auto;
+                  margin-bottom: 28px;
+                  border-width: 2px;
+                  color: #6b6b6b;
+                "
+              />
               <div class="row">
                 <div class="col">
                   <h6 class="m-0">
-                    Personal <br> Information
+                    Personal <br />
+                    Information
                   </h6>
                 </div>
                 <div class="col">
                   <h6 class="m-0">
-                    Property <br> Information
+                    Property <br />
+                    Information
                   </h6>
                 </div>
                 <div class="col">
                   <h6 class="m-0">
-                    Upload <br> Videos/Photos
+                    Upload <br />
+                    Videos/Photos
                   </h6>
                 </div>
               </div>
             </div>
-            <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" [selectedIndex]="active_tab">
+            <mat-tab-group
+              mat-stretch-tabs="false"
+              mat-align-tabs="center"
+              [selectedIndex]="active_tab"
+            >
               <mat-tab label="01" disabled>
-                <!-- <mat-radio-group formControlName="user_type" class="mt-2 mb-2">
-                  <mat-radio-button class="example-margin" value="after">
-                    <h5 class="mb-1">Seller</h5>
-                  </mat-radio-button>
-                  <mat-radio-button class="example-margin" value="before">
-                    <h5 class="mb-1">Buyer</h5>
-                  </mat-radio-button>
-                </mat-radio-group> -->
-                <div class="personal-data d-flex justify-content-start flex-column">
-                  <div class="switch-home d-flex justify-content-between mt-2 mb-2">
-                  <label for="uses_purpose">Listing type</label>
-                    <mat-slide-toggle id="uses_purpose" formControlName="user_type"></mat-slide-toggle>
+                <div
+                  class="personal-data d-flex justify-content-start flex-column"
+                >
+                  <div class="name d-flex justify-content-between">
+                    <label for="name">Name</label>
+                    <input
+                      id="name"
+                      type="text"
+                      formControlName="user_name"
+                      class="ms-3"
+                    />
                   </div>
-                  <label for="name">Name: </label>
-                  <input id="name" type="text" formControlName="user_name" class="mt-1 mb-1 me-1">
-                  <label for="phone">Phone: </label>
-                  <input id="phone" type="tel" formControlName="user_contact" class="mt-1 mb-1 me-1">
-                  <label for="password">Password: </label>
-                  <input id="password" type="password" formControlName="user_password" class="mt-1 mb-1 me-1" autocomplete="on">
+                  <div class="phone d-flex justify-content-between">
+                    <label for="phone">Phone</label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      formControlName="user_contact"
+                      class="ms-3"
+                    />
+                  </div>
+                  <div class="otp d-flex justify-content-between">
+                    <label for="otp">OTP</label>
+                    <input
+                      id="otp"
+                      type="text"
+                      formControlName="user_otp"
+                      class="ms-1"
+                    />
+                  </div>
+                  <div class="password d-flex justify-content-between">
+                    <label for="password">Password</label>
+                    <input
+                      id="password"
+                      type="password"
+                      formControlName="user_password"
+                      class="ms-1"
+                      autocomplete="on"
+                    />
+                  </div>
+                  <div
+                    class="switch-user d-flex justify-content-between mt-1 mb-1"
+                  >
+                    <label for="uses_purpose">User Type</label>
+                    <div class="d-flex radio-select">
+                      <!-- <p *ngIf="form.value.user_type" class="m-auto ms-0 me-3">
+                        SELLER
+                      </p>
+                      <p *ngIf="!form.value.user_type" class="m-auto ms-0 me-3">
+                        BUYER
+                      </p>
+                      <mat-slide-toggle
+                        id="uses_purpose"
+                        formControlName="user_type"
+                      ></mat-slide-toggle> -->
+                      <mat-radio-group
+                        formControlName="user_type"
+                        class="mt-2 mb-2"
+                      >
+                        <mat-radio-button class="example-margin" value="after">
+                          <h5 class="mb-1">Seller</h5>
+                        </mat-radio-button>
+                        <mat-radio-button class="example-margin" value="before">
+                          <h5 class="mb-1">Buyer</h5>
+                        </mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                  </div>
                 </div>
                 <div class="action-btn d-flex justify-content-end">
-                  <button class="btn btn-primary"  (click) = "switchTab(1)">Next</button>
+                  <button class="btn btn-primary" (click)="switchTab(1)">
+                    Next
+                  </button>
                 </div>
               </mat-tab>
               <mat-tab label="02" disabled>
-                <div class="property-details d-flex justify-content-start flex-column">
-                  <label for="property_age">Age of Property: </label>
-                  <input id="property_age" type="number" formControlName="property_age" class="mt-1 mb-1" min="0" max="20">
-                  <label for="expected_price">Expected Price: </label>
-                  <input id="expected_price" type="number" formControlName="expected_price" class="mt-1 mb-1">
-                  <label for="address">Address: </label>
-                  <textarea id="address" type="text" formControlName="property_address" class="mt-1 mb-1" rows="4"></textarea>
+                <div
+                  class="property-details d-flex justify-content-start flex-column"
+                >
+                  <div class="d-flex justify-content-between">
+                    <label for="expected_price">Expected Price</label>
+                    <input
+                      id="expected_price"
+                      type="number"
+                      formControlName="expected_price"
+                      class="mt-1 mb-1"
+                    />
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <label for="expected_deposit">Deposit</label>
+                    <input
+                      id="expected_deposit"
+                      type="number"
+                      formControlName="expected_deposit"
+                      class="mt-1 mb-1"
+                    />
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <label for="expected_rent">Rent</label>
+                    <input
+                      id="expected_rent"
+                      type="number"
+                      formControlName="expected_rent"
+                      class="mt-1 mb-1"
+                    />
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <label for="property_size">Property Size</label>
+                    <div class="size_field">
+                      <div class="room_size">
+                        <input
+                          id="property_size"
+                          type="number"
+                          formControlName="property_size"
+                          class="mt-1 mb-1"
+                        />
+                      </div>
+                      <!-- <div class="properties_capacity">
+                        <input
+                          id=""
+                          type="number"
+                          formControlName=""
+                          class="mt-1 mb-1"
+                        />
+                      </div> -->
+                    </div>
+                  </div>
+                  <div class="switch-porperty d-flex justify-content-between">
+                    <label for="uses_purpose">Listing type</label>
+                    <div class="d-flex">
+                      <p
+                        *ngIf="form.value.property_type"
+                        class="m-auto ms-0 me-3"
+                      >
+                        FOR SALE
+                      </p>
+                      <p
+                        *ngIf="!form.value.property_type"
+                        class="m-auto ms-0 me-3"
+                      >
+                        RENTAL
+                      </p>
+                      <mat-slide-toggle
+                        id="uses_purpos"
+                        formControlName="property_type"
+                      ></mat-slide-toggle>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <label for="property_age"
+                      >Property's Age : {{ form.value.property_age }}</label
+                    >
+                    <div class="slider-poperty d-flex">
+                      <mat-slider
+                        class="example-margin"
+                        [max]="20"
+                        [min]="0"
+                        [step]="1"
+                      >
+                        <input matSliderThumb formControlName="property_age" />
+                      </mat-slider>
+                    </div>
+                  </div>
+                  <div class="address d-flex justify-content-between">
+                    <label for="address">Address</label>
+                    <textarea
+                      id="address"
+                      type="text"
+                      formControlName="property_address"
+                      class="mt-1 mb-1"
+                      rows="3"
+                    ></textarea>
+                  </div>
                 </div>
                 <div class="action-btn d-flex justify-content-end">
-                  <button class="btn btn-primary"  (click) = "switchTab(2)">Next</button>
+                  <button class="btn btn-primary" (click)="switchTab(2)">
+                    Next
+                  </button>
                 </div>
               </mat-tab>
               <mat-tab label="03" disabled>
                 Content 4
-                <button class="btn btn-primary" type="submit" (click)="sendData()">Submit</button>
-                <button class="btn btn-primary"  (click) = "switchTab(0)">Login</button>
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  (click)="sendData()"
+                >
+                  Submit
+                </button>
+                <button class="btn btn-primary" (click)="switchTab(0)">
+                  Login
+                </button>
               </mat-tab>
             </mat-tab-group>
           </form>
         </div>
       </div>
     </div>
-
-
   </div>
   <div class="body">
     <p>Body Content</p>
@@ -96,7 +259,3 @@
     <p>Footer Content</p>
   </div>
 </div>
-
-
-
-
