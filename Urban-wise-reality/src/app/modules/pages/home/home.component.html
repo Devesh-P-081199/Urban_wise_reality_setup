@@ -9,50 +9,19 @@
         <div class="cnt p-4">
           <form [formGroup]="form" class="form">
             <div
-              class="form-panel-module d-flex align-items-center justify-content-center flex-column"
+              class="d-flex align-items-center justify-content-center flex-column"
             >
               <h2 class="mb-3">Listing Form</h2>
-              <p class="mb-3 text-center">
+              <p class="mb-5 text-center">
                 Please fill out this form with the required information
               </p>
-            </div>
-            <div class="hr-n-titles">
-              <hr
-                style="
-                  width: 85%;
-                  margin: auto;
-                  margin-bottom: 28px;
-                  border-width: 2px;
-                  color: #6b6b6b;
-                "
-              />
-              <div class="row">
-                <div class="col">
-                  <h6 class="m-0">
-                    Personal <br />
-                    Information
-                  </h6>
-                </div>
-                <div class="col">
-                  <h6 class="m-0">
-                    Property <br />
-                    Information
-                  </h6>
-                </div>
-                <div class="col">
-                  <h6 class="m-0">
-                    Upload <br />
-                    Videos/Photos
-                  </h6>
-                </div>
-              </div>
             </div>
             <mat-tab-group
               mat-stretch-tabs="false"
               mat-align-tabs="center"
               [selectedIndex]="active_tab"
             >
-              <mat-tab label="01" disabled>
+              <mat-tab label="01">
                 <div
                   class="personal-data d-flex justify-content-start flex-column"
                 >
@@ -74,7 +43,10 @@
                       class="ms-3"
                     />
                   </div>
-                  <div class="otp d-flex justify-content-between">
+                  <div
+                    class="otp d-flex justify-content-between"
+                    *ngIf="this.form.value.user_contact.length == 10"
+                  >
                     <label for="otp">OTP</label>
                     <input
                       id="otp"
@@ -96,7 +68,7 @@
                   <div
                     class="switch-user d-flex justify-content-between mt-1 mb-1"
                   >
-                    <label for="uses_purpose">User Type</label>
+                    <label for="uses_purpose">Listing Type</label>
                     <div class="d-flex radio-select">
                       <!-- <p *ngIf="form.value.user_type" class="m-auto ms-0 me-3">
                         SELLER
@@ -112,11 +84,11 @@
                         formControlName="user_type"
                         class="mt-2 mb-2"
                       >
-                        <mat-radio-button class="example-margin" value="after">
-                          <h5 class="mb-1">Seller</h5>
+                        <mat-radio-button class="example-margin" value="seller">
+                          <p class="mb-1">SELLER</p>
                         </mat-radio-button>
-                        <mat-radio-button class="example-margin" value="before">
-                          <h5 class="mb-1">Buyer</h5>
+                        <mat-radio-button class="example-margin" value="buyer">
+                          <p class="mb-1">BUYER</p>
                         </mat-radio-button>
                       </mat-radio-group>
                     </div>
@@ -128,78 +100,31 @@
                   </button>
                 </div>
               </mat-tab>
-              <mat-tab label="02" disabled>
+              <mat-tab label="02">
                 <div
                   class="property-details d-flex justify-content-start flex-column"
                 >
                   <div class="d-flex justify-content-between">
-                    <label for="expected_price">Expected Price</label>
+                    <label for="property_size">Configuration</label>
+                    <select formControlName="room_number" id="property_size">
+                      <option value="1">1RK</option>
+                      <option value="1">1BHK</option>
+                      <option value="1">2BHK</option>
+                      <option value="1">3BHK</option>
+                      <option value="1">4BHK</option>
+                    </select>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between"
+                    *ngIf="this.form.value.room_number"
+                  >
+                    <label for="carpet_size">Carpet Size</label>
                     <input
-                      id="expected_price"
+                      id="carpet_size"
                       type="number"
-                      formControlName="expected_price"
+                      formControlName="lot_size"
                       class="mt-1 mb-1"
                     />
-                  </div>
-                  <div class="d-flex justify-content-between">
-                    <label for="expected_deposit">Deposit</label>
-                    <input
-                      id="expected_deposit"
-                      type="number"
-                      formControlName="expected_deposit"
-                      class="mt-1 mb-1"
-                    />
-                  </div>
-                  <div class="d-flex justify-content-between">
-                    <label for="expected_rent">Rent</label>
-                    <input
-                      id="expected_rent"
-                      type="number"
-                      formControlName="expected_rent"
-                      class="mt-1 mb-1"
-                    />
-                  </div>
-                  <div class="d-flex justify-content-between">
-                    <label for="property_size">Property Size</label>
-                    <div class="size_field">
-                      <div class="room_size">
-                        <input
-                          id="property_size"
-                          type="number"
-                          formControlName="property_size"
-                          class="mt-1 mb-1"
-                        />
-                      </div>
-                      <!-- <div class="properties_capacity">
-                        <input
-                          id=""
-                          type="number"
-                          formControlName=""
-                          class="mt-1 mb-1"
-                        />
-                      </div> -->
-                    </div>
-                  </div>
-                  <div class="switch-porperty d-flex justify-content-between">
-                    <label for="uses_purpose">Listing type</label>
-                    <div class="d-flex">
-                      <p
-                        *ngIf="form.value.property_type"
-                        class="m-auto ms-0 me-3"
-                      >
-                        FOR SALE
-                      </p>
-                      <p
-                        *ngIf="!form.value.property_type"
-                        class="m-auto ms-0 me-3"
-                      >
-                        RENTAL
-                      </p>
-                      <mat-slide-toggle
-                        id="uses_purpos"
-                        formControlName="property_type"
-                      ></mat-slide-toggle>
-                    </div>
                   </div>
                   <div class="d-flex justify-content-between">
                     <label for="property_age"
@@ -216,15 +141,75 @@
                       </mat-slider>
                     </div>
                   </div>
-                  <div class="address d-flex justify-content-between">
-                    <label for="address">Address</label>
-                    <textarea
-                      id="address"
-                      type="text"
-                      formControlName="property_address"
+                  <div class="switch-porperty d-flex justify-content-between">
+                    <label for="uses_purpose">Property puropse</label>
+                    <!-- <div class="d-flex">
+                      <p
+                        *ngIf="form.value.property_type"
+                        class="m-auto ms-0 me-3"
+                      >
+                        FOR SALE
+                      </p>
+                      <p
+                        *ngIf="!form.value.property_type"
+                        class="m-auto ms-0 me-3"
+                      >
+                        RENTAL
+                      </p>
+                      <mat-slide-toggle
+                        id="uses_purpos"
+                        formControlName="property_type"
+                      ></mat-slide-toggle>
+                    </div> -->
+                    <div class="d-flex radio-select">
+                      <mat-radio-group
+                        formControlName="property_type"
+                        class="mt-2 mb-2"
+                      >
+                        <mat-radio-button class="example-margin" value="sale">
+                          <p class="mb-1">FOR SALE</p>
+                        </mat-radio-button>
+                        <mat-radio-button class="example-margin" value="rental">
+                          <p class="mb-1">RENTAL</p>
+                        </mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between"
+                    *ngIf="this.form.value.property_type === 'sale'"
+                  >
+                    <label for="expected_price">Expected Price</label>
+                    <input
+                      id="expected_price"
+                      type="number"
+                      formControlName="expected_price"
                       class="mt-1 mb-1"
-                      rows="3"
-                    ></textarea>
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-between"
+                    *ngIf="this.form.value.property_type === 'rental'"
+                  >
+                    <label for="expected_deposit">Deposit</label>
+                    <input
+                      id="expected_deposit"
+                      type="number"
+                      formControlName="expected_deposit"
+                      class="mt-1 mb-1"
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-between"
+                    *ngIf="this.form.value.property_type === 'rental'"
+                  >
+                    <label for="expected_rent">Rent</label>
+                    <input
+                      id="expected_rent"
+                      type="number"
+                      formControlName="expected_rent"
+                      class="mt-1 mb-1"
+                    />
                   </div>
                 </div>
                 <div class="action-btn d-flex justify-content-end">
@@ -233,8 +218,84 @@
                   </button>
                 </div>
               </mat-tab>
-              <mat-tab label="03" disabled>
-                Content 4
+              <mat-tab label="03">
+                <div class="address d-flex justify-content-between">
+                  <label for="address">Address</label>
+                  <textarea
+                    id="address"
+                    type="text"
+                    formControlName="property_address"
+                    class="mt-1 mb-1"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <div class="img_upload setput d-flex justify-content-between">
+                  <div class="head d-flex flex-column justify-content-center">
+                    <p class="label">Image</p>
+                    <input
+                      type="file"
+                      id="upload_image_files"
+                      (change)="send_image_data($event, true)"
+                      multiple
+                      hidden
+                    />
+                    <label for="upload_image_files">Upload</label>
+                  </div>
+                  <div class="files">
+                    <ul>
+                      <li *ngFor="let image of imageList">
+                        {{ image.name }}
+                        <div class="action">
+                          <img
+                            src="../../../../assets/icon/image.png"
+                            alt="image"
+                          />
+                          <img
+                            src="../../../../assets/icon/cancel.png"
+                            alt="cancel"
+                          />
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="video_upload setput d-flex justify-content-between">
+                  <div class="head d-flex flex-column justify-content-center">
+                    <p class="label">Video</p>
+                    <input
+                      type="file"
+                      id="upload_video_files"
+                      (change)="send_image_data($event, false)"
+                      multiple
+                      hidden
+                    />
+                    <label for="upload_video_files">Upload</label>
+                  </div>
+                  <div class="files">
+                    <ul>
+                      <li *ngFor="let video of videoList">
+                        {{ video.name }}
+                        <div class="action">
+                          <img
+                            src="../../../../assets/icon/image.png"
+                            alt="image"
+                          />
+                          <img
+                            src="../../../../assets/icon/cancel.png"
+                            alt="cancel"
+                          />
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="action-btn d-flex justify-content-end">
+                  <button class="btn btn-primary" (click)="switchTab(3)">
+                    Next
+                  </button>
+                </div>
+              </mat-tab>
+              <mat-tab label="04">
                 <button
                   class="btn btn-primary"
                   type="submit"
@@ -242,9 +303,11 @@
                 >
                   Submit
                 </button>
-                <button class="btn btn-primary" (click)="switchTab(0)">
-                  Login
-                </button>
+                <div class="action-btn d-flex justify-content-end">
+                  <button class="btn btn-primary" (click)="switchTab(0)">
+                    Login
+                  </button>
+                </div>
               </mat-tab>
             </mat-tab-group>
           </form>

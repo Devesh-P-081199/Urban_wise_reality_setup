@@ -80,8 +80,19 @@ input {
   padding: 6px 9px;
   border-radius: 5px;
   border: 1px solid #000;
-  width: 325px;
+  width: 310px;
   margin: 5px 0;
+}
+
+select {
+  width: 310px;
+  font-size: 16px !important;
+  padding: 6px 5px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  margin: 5px 0;
+  // background: transparent url("../src/assets/icon/arrow-down.png") no-repeat
+  //   285px center;
 }
 
 textarea {
@@ -91,5 +102,5 @@ textarea {
   border: none;
   border: 1px solid #000;
   margin: 5px 0;
-  width: 325px;
+  width: 310px;
 }
