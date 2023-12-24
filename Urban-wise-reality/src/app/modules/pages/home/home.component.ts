@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AwsService } from 'src/app/services/aws.service';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +13,10 @@ export class HomeComponent implements OnInit {
   otpGenerated: any;
   imageList: any;
   videoList: any;
+  selectedFiles!: FileList;
+  data: any;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private awsService: AwsService) {}
 
   ngOnInit() {
     this.formInit();
@@ -54,5 +57,17 @@ export class HomeComponent implements OnInit {
     } else {
       this.videoList = res.target.files;
     }
+    this.upload();
+  }
+
+  async upload() {
+    for (let i = 0; i < this.imageList.length; i++) {
+      const element = this.imageList[i];
+      console.log(element.name);
+      const file = this.imageList[i];
+      this.data = await this.awsService.uploadImage(file);
+      console.log(this.data, 'here');
+    }
+    console.log(this.imageList.length);
   }
 }
